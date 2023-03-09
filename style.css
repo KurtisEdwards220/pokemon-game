@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(24, 39, 155);
+  background-color: rgb(41, 39, 60);
   margin: 0;
   font-family: rubik;
 }
@@ -7,28 +7,14 @@ body {
 .card {
   list-style: none;
   padding: 40px;
-  background-color: #f4f4f4;
-  color: #222;
+  background-color: rgb(30, 33, 34);
+  color: #ffffff;
   text-align: center;
 }
 
 .card:hover {
   animation: bounce 0.5s linear;
-}
-
-@keyframes bounce {
-  20% {
-    transform: translateY(-6px);
-  }
-  40% {
-    transform: translateY(0px);
-  }
-  60% {
-    transform: translateY(-2px);
-  }
-  80% {
-    transform: translateY(0px);
-  }
+  cursor: pointer;
 }
 
 .card-title {
@@ -61,7 +47,58 @@ body {
 }
 
 h1 {
+  color: #ffffff;
   text-transform: uppercase;
   text-align: center;
   font-size: 54px;
+}
+
+@keyframes bounce {
+  20% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(0px);
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgb(30, 33, 34);
+  opacity: 0.97;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+button {
+  background-color: rgb(87, 82, 127);
+  padding: 10px 20px;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  transition: transform 100ms;
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translateY(-1px);
+  box-shadow: 0px 1px 2px rgb(255, 255, 255);
 }
