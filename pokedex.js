@@ -1,27 +1,38 @@
 // Call PokeAPI
 const pokedex = document.getElementById('pokedex');
 const pokeCache = {};
+let searchValue = '';
+let pokemon;
 const fetchPokemon = async () => {
   try {
     const url = `https://pokeapi.co/api/v2/pokemon?limit=905`;
     const res = await fetch(url);
     const data = await res.json();
-    const pokemon = data.results.map((result, index) => ({
+    pokemon = data.results.map((result, index) => ({
       ...result,
       id: index + 1,
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${
         index + 1
       }.png`,
     }));
-    displayPokemon(pokemon);
+    displayPokemon();
   } catch (err) {
     console.error(err);
   }
 };
 
 // Display Cards
-const displayPokemon = (pokemon) => {
+const displayPokemon = () => {
   const pokemonHTMLString = pokemon
+    .filter((pokeman) => {
+      if (searchValue.length > 0) {
+        return (
+          pokeman.name.toLowerCase().includes(searchValue) ||
+          pokeman.id.toString().includes(searchValue)
+        );
+      }
+      return pokeman;
+    })
     .map(
       (pokeman) =>
         `
@@ -34,6 +45,21 @@ const displayPokemon = (pokemon) => {
     .join('');
   pokedex.innerHTML = pokemonHTMLString;
 };
+
+// const displayPokemon = () => {
+//   const pokemonHTMLString = pokemon
+//     .map(
+//       (pokeman) =>
+//         `
+//     <li class='card' onclick='selectPokemon(${pokeman.id})'>
+//         <img class='card-image' src="${pokeman.image}"/>
+//         <h2 class='card-title'>${pokeman.id}. ${pokeman.name}</h2>
+//     </li>
+//   `
+//     )
+//     .join('');
+//   pokedex.innerHTML = pokemonHTMLString;
+// };
 
 // Display Popups and cache data
 const selectPokemon = async (id) => {
@@ -69,23 +95,34 @@ const closePopup = () => {
 };
 
 // Add Search Bar Funcionality
-const searchBar = document.getElementById('searchBar');
 
-const createSearchFilter = (pokemonData) => {
-  const cards = document.querySelectorAll('.card');
-  searchBar.addEventListener('keyup', (event) => {
-    const val = event.target.value.toLowerCase();
-    cards.forEach((card) => {
-      if (card.id.toLowerCase().includes(val)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-};
+searchBar.addEventListener('keyup', (e) => {
+  searchValue = e.target.value.toLowerCase();
+  console.log(searchValue);
+  displayPokemon();
+});
 
-createSearchFilter();
+// const searchBar = document.getElementById('searchBar');
+// searchBar.addEventListener('keyup'), (event) => {
+//   const cards = document.querySelectorAll('.card');
+//   const val = event.target.value.toLowerCase();
+// }
+// const createSearchFilter = (pokemonData) => {
+//   const cards = document.querySelectorAll('.card');
+//   searchBar.addEventListener('keyup', (event) => {
+//     console.log(event.target);
+//     const val = event.target.value.toLowerCase();
+//     cards.forEach((card) => {
+//       if (card.id.toLowerCase().includes(val)) {
+//         card.style.display = 'block';
+//       } else {
+//         card.style.display = 'none';
+//       }
+//     });
+//   });
+// };
+
+// createSearchFilter();
 
 // Add Back To Top Button
 let mybutton = document.getElementById('topBtn');

@@ -4,15 +4,13 @@ body {
 
 canvas {
   z-index: 1;
+  width: 100%;
 }
 
 #pokedexButton {
   cursor: pointer;
   padding: 5px;
-  border-radius: 10px;
   font-size: 18px;
   z-index: 2;
-  position: absolute;
-  top: 42%;
-  left: 50%;
+  width: 100%;
 }
