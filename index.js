@@ -35,8 +35,11 @@ image.src = './img/LakeVerity.png';
 const foregroundImage = new Image();
 foregroundImage.src = './img/foregroundObjects.png';
 
-const playerImage = new Image();
-playerImage.src = './img/swimmingRight.png';
+const playerRightImage = new Image();
+playerRightImage.src = './img/swimmingRight.png';
+
+const playerLeftImage = new Image();
+playerLeftImage.src = './img/swimmingLeft.png';
 
 const hairImage = new Image();
 hairImage.src = './img/hairRight.png';
@@ -46,9 +49,13 @@ const player = new Sprite({
     x: canvas.width / 2 - 400 / 4 / 2,
     y: canvas.height / 2 - 64 / 2,
   },
-  image: playerImage,
+  image: playerRightImage,
   frames: {
     max: 12,
+  },
+  sprites: {
+    left: playerLeftImage,
+    right: playerRightImage,
   },
 });
 const hair = new Sprite({
@@ -131,7 +138,6 @@ function animate() {
           },
         })
       ) {
-        console.log('colliding');
         moving = false;
         break;
       }
@@ -142,6 +148,7 @@ function animate() {
         movable.position.y += 3;
       });
   } else if (keys.a.pressed && lastKey === 'a') {
+    player.image = player.sprites.left;
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -156,7 +163,6 @@ function animate() {
           },
         })
       ) {
-        console.log('colliding');
         moving = false;
         break;
       }
@@ -181,7 +187,6 @@ function animate() {
           },
         })
       ) {
-        console.log('colliding');
         moving = false;
         break;
       }
@@ -192,6 +197,7 @@ function animate() {
         movable.position.y -= 3;
       });
   } else if (keys.d.pressed && lastKey === 'd') {
+    player.image = player.sprites.right;
     for (let i = 0; i < boundaries.length; i++) {
       const boundary = boundaries[i];
       if (
@@ -206,7 +212,6 @@ function animate() {
           },
         })
       ) {
-        console.log('colliding');
         moving = false;
         break;
       }
