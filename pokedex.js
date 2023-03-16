@@ -83,7 +83,6 @@ const closePopup = () => {
 
 searchBar.addEventListener('keyup', (e) => {
   searchValue = e.target.value.toLowerCase();
-  console.log(searchValue);
   displayPokemon();
 });
 

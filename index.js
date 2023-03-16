@@ -36,13 +36,10 @@ const foregroundImage = new Image();
 foregroundImage.src = './img/foregroundObjects.png';
 
 const playerRightImage = new Image();
-playerRightImage.src = './img/swimmingRight2.png';
+playerRightImage.src = './img/swimmingRight.png';
 
 const playerLeftImage = new Image();
-playerLeftImage.src = './img/swimmingLeft2.png';
-
-const hairImage = new Image();
-hairImage.src = './img/hairRight.png';
+playerLeftImage.src = './img/swimmingLeft.png';
 
 const player = new Sprite({
   position: {
@@ -56,16 +53,6 @@ const player = new Sprite({
   sprites: {
     left: playerLeftImage,
     right: playerRightImage,
-  },
-});
-const hair = new Sprite({
-  position: {
-    x: canvas.width / 2 - 400 / 4 / 2,
-    y: canvas.height / 2 - 64 / 2,
-  },
-  image: hairImage,
-  frames: {
-    max: 12,
   },
 });
 const background = new Sprite({
@@ -258,28 +245,3 @@ window.addEventListener('keyup', (e) => {
       break;
   }
 });
-
-/*
-c.drawImage(
-  playerImage,
-  0,
-  0,
-  playerImage.width / 12,
-  playerImage.height,
-  canvas.width / 2 - playerImage.width / 4 / 2,
-  canvas.height / 2 - playerImage.height / 2,
-  playerImage.width / 4,
-  playerImage.height * 2
-);
-c.drawImage(
-  hairImage,
-  0,
-  0,
-  hairImage.width / 12,
-  hairImage.height,
-  canvas.width / 2 - hairImage.width / 4 / 2,
-  canvas.height / 2 - hairImage.height / 2,
-  hairImage.width / 4,
-  hairImage.height * 2
-);
-*/
