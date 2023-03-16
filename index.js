@@ -30,7 +30,7 @@ collisionsMap.forEach((row, i) => {
 });
 
 const image = new Image();
-image.src = 'img/lakeVerity.png';
+image.src = 'img/LakeVerity.png';
 
 const foregroundImage = new Image();
 foregroundImage.src = 'img/foregroundObjects.png';
