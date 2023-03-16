@@ -30,16 +30,16 @@ collisionsMap.forEach((row, i) => {
 });
 
 const image = new Image();
-image.src = '/img/lakeVerity.png';
+image.src = 'img/lakeVerity.png';
 
 const foregroundImage = new Image();
-foregroundImage.src = '/img/foregroundObjects.png';
+foregroundImage.src = 'img/foregroundObjects.png';
 
 const playerRightImage = new Image();
-playerRightImage.src = '/img/swimmingRight.png';
+playerRightImage.src = 'img/swimmingRight.png';
 
 const playerLeftImage = new Image();
-playerLeftImage.src = '/img/swimmingLeft.png';
+playerLeftImage.src = 'img/swimmingLeft.png';
 
 const player = new Sprite({
   position: {

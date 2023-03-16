@@ -24,21 +24,21 @@ const fetchPokemon = async () => {
 // Display and Filter Cards
 const displayPokemon = () => {
   const pokemonHTMLString = pokemon
-    .filter((pokeman) => {
+    .filter((pokemon) => {
       if (searchValue.length > 0) {
         return (
-          pokeman.name.toLowerCase().includes(searchValue) ||
-          pokeman.id.toString().includes(searchValue)
+          pokemon.name.toLowerCase().includes(searchValue) ||
+          pokemon.id.toString().includes(searchValue)
         );
       }
-      return pokeman;
+      return pokemon;
     })
     .map(
-      (pokeman) =>
+      (pokemon) =>
         `
-    <li class='card' onclick='selectPokemon(${pokeman.id})'>
-        <img class='card-image' src="${pokeman.image}"/>
-        <h2 class='card-title'>${pokeman.id}. ${pokeman.name}</h2>  
+    <li class='card' onclick='selectPokemon(${pokemon.id})'>
+        <img class='card-image' src="${pokemon.image}"/>
+        <h2 class='card-title'>${pokemon.id}. ${pokemon.name}</h2>  
     </li>
   `
     )
@@ -51,22 +51,22 @@ const selectPokemon = async (id) => {
   if (!pokeCache[id]) {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
-    const pokeman = await res.json();
-    pokeCache[id] = pokeman;
-    displayPopup(pokeman);
+    const pokemon = await res.json();
+    pokeCache[id] = pokemon;
+    displayPopup(pokemon);
   } else displayPopup(pokeCache[id]);
 };
 
-const displayPopup = (pokeman) => {
-  const type = pokeman.types.map((type) => type.type.name).join(', ');
-  const image = pokeman.sprites['front_shiny'];
+const displayPopup = (pokemon) => {
+  const type = pokemon.types.map((type) => type.type.name).join(', ');
+  const image = pokemon.sprites['front_shiny'];
   const htmlString = `
     <div class='popup'>
       <button id='closeBtn' onclick='closePopup()'>Close</button>
       <div class='card'>
         <img class='card-image' src='${image}'/>
-        <h2 class='card-title'>${pokeman.id}. ${pokeman.name}</h2>
-        <p><small>Height: </small>${pokeman.height} | <small>Weight: </small>${pokeman.weight} | <small>Type: </small>${type}</p> 
+        <h2 class='card-title'>${pokemon.id}. ${pokemon.name}</h2>
+        <p><small>Height: </small>${pokemon.height} | <small>Weight: </small>${pokemon.weight} | <small>Type: </small>${type}</p> 
       </div>
     </div>
   `;
