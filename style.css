@@ -123,19 +123,20 @@ button:hover {
   border: 2px solid #ffffff;
 }
 
+/* #container {
+  position: relative;
+} */
+
 #gameButton {
   cursor: pointer;
   padding: 5px;
   border-radius: 10px;
   font-size: 18px;
   z-index: 2;
-  position: absolute;
-  top: 2%;
-  left: 43%;
 }
 
 #searchBar {
-  width: 90vw;
+  width: 98%;
   height: 32px;
   border-radius: 3px;
   border: 2px solid rgb(142, 134, 209);

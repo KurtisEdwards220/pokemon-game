@@ -21,7 +21,7 @@ const fetchPokemon = async () => {
   }
 };
 
-// Display Cards
+// Display and Filter Cards
 const displayPokemon = () => {
   const pokemonHTMLString = pokemon
     .filter((pokeman) => {
