@@ -36,18 +36,18 @@ const foregroundImage = new Image();
 foregroundImage.src = './img/foregroundObjects.png';
 
 const playerRightImage = new Image();
-playerRightImage.src = './img/swimmingRight.png';
+playerRightImage.src = './img/swimmingRight2.png';
 
 const playerLeftImage = new Image();
-playerLeftImage.src = './img/swimmingLeft.png';
+playerLeftImage.src = './img/swimmingLeft2.png';
 
 const hairImage = new Image();
 hairImage.src = './img/hairRight.png';
 
 const player = new Sprite({
   position: {
-    x: canvas.width / 2 - 400 / 4 / 2,
-    y: canvas.height / 2 - 64 / 2,
+    x: canvas.width / 2 - playerRightImage.width / 12 / 2,
+    y: canvas.height / 2 - playerRightImage.height / 2,
   },
   image: playerRightImage,
   frames: {
@@ -97,12 +97,7 @@ const keys = {
     pressed: false,
   },
 };
-const testBoundary = new Boundary({
-  position: {
-    x: 1000,
-    y: 1000,
-  },
-});
+
 const movables = [background, ...boundaries, foreground];
 
 function rectangularCollision({ rectangle1, rectangle2 }) {
@@ -158,7 +153,7 @@ function animate() {
             ...boundary,
             position: {
               x: boundary.position.x + 3,
-              y: boundary.position.y + 3,
+              y: boundary.position.y,
             },
           },
         })
