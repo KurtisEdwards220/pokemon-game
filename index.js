@@ -246,16 +246,11 @@ window.addEventListener('keyup', (e) => {
   }
 });
 
-// D-pad
+// Volume Slider
 
-const w = document.querySelector('#w');
+let audio = document.querySelector('#audio');
+let volume = document.querySelector('#volume-control');
 
-w.addEventListener('click', () => {
-  simulateKeyPress('w');
+volume.addEventListener('change', function (e) {
+  audio.volume = e.currentTarget.value / 100;
 });
-
-function simulateKeyPress(key) {
-  const event = new KeyboardEvent('keypress', { key });
-  w.dispatchEvent(event);
-  console.log('pressed');
-}
