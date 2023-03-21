@@ -98,11 +98,11 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 function animate() {
   window.requestAnimationFrame(animate);
   background.draw();
+  player.draw();
+  foreground.draw();
   boundaries.forEach((boundary) => {
     boundary.draw();
   });
-  player.draw();
-  foreground.draw();
 
   let moving = true;
   if (keys.w.pressed && lastKey === 'w') {
@@ -245,3 +245,17 @@ window.addEventListener('keyup', (e) => {
       break;
   }
 });
+
+// D-pad
+
+const w = document.querySelector('#w');
+
+w.addEventListener('click', () => {
+  simulateKeyPress('w');
+});
+
+function simulateKeyPress(key) {
+  const event = new KeyboardEvent('keypress', { key });
+  w.dispatchEvent(event);
+  console.log('pressed');
+}
