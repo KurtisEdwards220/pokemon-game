@@ -17,4 +17,6 @@ third-party API and use it to
 display something within your
 app.
 
-To interact with this game demo move around with the WASD keys in the game environment. If you would like to visit the pokedex, click the "Pokedex" button below the game. The pokedex is very interactive. You can search by pokemon name or ID number and you can click on each pokemon for additional information. If you would like to return to the game environment, hit the "Back to Game" button.
+This application is a combination of a game demo and a pokedex database. The game demo is an area I made that is inspired from the game "Pokemon Diamond/Pearl". The pokedex pulls from the PokeAPI and it is very interactive. You can search by pokemon name or ID number and you can click on each pokemon for additional information.
+
+To interact with this game demo move around with the WASD keys in the game environment. If you would like to visit the pokedex, click the "Pokedex" button below the game. If you would like to return to the game environment, hit the "Back to Game" button.
