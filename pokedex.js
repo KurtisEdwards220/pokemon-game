@@ -21,29 +21,31 @@ const fetchPokemon = async () => {
   }
 };
 
-// Display and Filter Cards
+// Display and Filter Cards + array length counter
 const displayPokemon = () => {
-  const pokemonHTMLString = pokemon
-    .filter((pokemon) => {
-      if (searchValue.length > 0) {
-        return (
-          pokemon.name.toLowerCase().includes(searchValue) ||
-          pokemon.id.toString().includes(searchValue)
-        );
-      }
-      return pokemon;
-    })
+  let arrayLengthElement = document.getElementById('arrayLength');
+  const filteredPokemon = pokemon.filter((pokemon) => {
+    if (searchValue.length > 0) {
+      return (
+        pokemon.name.toLowerCase().includes(searchValue) ||
+        pokemon.id.toString().includes(searchValue)
+      );
+    }
+    return pokemon;
+  });
+  const pokemonHTMLString = filteredPokemon
     .map(
       (pokemon) =>
         `
-    <li class='card' onclick='selectPokemon(${pokemon.id})'>
-        <img class='card-image' src="${pokemon.image}"/>
-        <h2 class='card-title'>${pokemon.id}. ${pokemon.name}</h2>  
-    </li>
-  `
+      <li class='card' onclick='selectPokemon(${pokemon.id})'>
+      <img class='card-image' src="${pokemon.image}"/>
+      <h2 class='card-title'>${pokemon.id}. ${pokemon.name}</h2>  
+      </li>
+      `
     )
     .join('');
   pokedex.innerHTML = pokemonHTMLString;
+  arrayLengthElement.innerHTML = 'Displayed Pokemon: ' + filteredPokemon.length;
 };
 
 // Display Popups and cache data
@@ -79,14 +81,19 @@ const closePopup = () => {
   popup.parentElement.removeChild(popup);
 };
 
-// Add Search Bar Funcionality
-
+// Search Bar Funcionality
 searchBar.addEventListener('keyup', (e) => {
   searchValue = e.target.value.toLowerCase();
   displayPokemon();
 });
 
-// Add Back To Top Button
+// Character Counter
+function countChars(obj) {
+  document.getElementById('charNum').innerHTML =
+    'Characters: ' + obj.value.length;
+}
+
+// Back To Top Button
 let mybutton = document.getElementById('topBtn');
 
 window.onscroll = function () {

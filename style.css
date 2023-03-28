@@ -123,10 +123,6 @@ button:hover {
   border: 2px solid #ffffff;
 }
 
-/* #container {
-  position: relative;
-} */
-
 #gameButton {
   cursor: pointer;
   padding: 5px;
@@ -142,4 +138,17 @@ button:hover {
   border: 2px solid rgb(142, 134, 209);
   padding: 5px 10px;
   font-size: 12px;
+}
+
+#counters {
+  display: flex;
+}
+
+#charNum {
+  color: white;
+}
+
+#arrayLength {
+  color: white;
+  padding-left: 50px;
 }

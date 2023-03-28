@@ -24,7 +24,12 @@
         name="searchBar"
         id="searchBar"
         placeholder="search for a pokemon"
+        onkeyup="countChars(this);"
       />
+      <div id="counters">
+        <p id="charNum">Characters: 0</p>
+        <p id="arrayLength"></p>
+      </div>
       <button onclick="topFunction()" id="topBtn" title="Go to top">Top</button>
       <ol id="pokedex"></ol>
     </div>
