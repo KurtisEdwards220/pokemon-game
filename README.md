@@ -1,20 +1,12 @@
-<center>
-
 ![Pokemon Game/Pokedex](img/githubImage.png)
 
 # Pokemon Game/Pokedex
 
 ## About
 
-</center>
-
 This application is a combination of a game demo and a pokedex database. The game demo is an area I made that is inspired from the game "Pokemon Diamond/Pearl". The pokedex pulls from the PokeAPI and it is very interactive. You can search by pokemon name or ID number and you can click on each pokemon for additional information.
 
-<center>
-
 ## Features
-
-</center>
 
 - Use arrays, objects, sets or
   maps to store and retrieve
@@ -38,14 +30,10 @@ This application is a combination of a game demo and a pokedex database. The gam
   drag-and-drop,
   calendar-date-picker, etc).
 
-<center>
-
 ## How to run and interact with this project
-
-</center>
 
 Clone [This Repository](https://github.com/KurtisEdwards220/pokemon-game)
 
-Then proceed to open `index.html` or `pokedex.html`
+Proceed to open `index.html` or `pokedex.html`
 
-To interact with the game demo move around with the WASD keys in the game environment. If you would like to visit the pokedex, click the ==Pokedex button== below the game. If you would like to return to the game environment, hit the ==Back to Game button==.
+To interact with the game demo move around with the WASD keys in the game environment. If you would like to visit the pokedex, click the **Pokedex button** below the game. If you would like to return to the game environment, hit the **Back to Game button**.
